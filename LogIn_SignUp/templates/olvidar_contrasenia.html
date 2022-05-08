@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'css/olvidar.css' %}">
+    <title>AprenderIngles</title>
+</head>
+    <body>
+        <header>
+            <div class="container">
+                {% if initial_username%}
+                    <div class="cuenta"><a href="/info/myaccount">{{initial_username}}</a></div>
+                {% endif %}
+
+                {% if not initial_username%}
+                    <div class="cuenta"><a href="">?</a></div>
+                {% endif %}
+                
+                <nav>
+                    <a href="/">Inicio</a>
+                    <a href="/Inicio-Sesion/">Login</a>
+                    <a href="/registro/">Registro</a>
+                    <a href="/#planes">Plan</a>
+                    <a href="/Contacto">Contacto</a>
+                    <a href="/Salir-Sesion">Log out</a>
+                </nav>
+            </div>
+        </header>
+        <div class="cuadro">
+            <div class="content">
+                <form action = "/OlvidarContrasenia/" method="POST">
+                    {% if wrong_aut %}
+                        <input type="text" name="test_email_username" id="txt_email_username" placeholder="Inserte su email o nombre"><br>
+                    {% endif %}
+
+                    {% if not wrong_aut %}
+                        <input type="text" name="test_email_username" id="txt_email_username_malo" placeholder="No hemos podido identificarle, lo sentimos"><br>
+                    {% endif %}
+                    
+                    <input type="submit" value="Enviar" id="submit">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

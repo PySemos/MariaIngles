@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'css/log.css'%}">
+    <title>Inicio-Sesion</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            {% if initial_username%}
+                <div class="cuenta"><a href="/info/myaccount">{{initial_username}}</a></div>
+            {% endif %}
+
+            {% if not initial_username%}
+                <div class="cuenta"><a href="">?</a></div>
+            {% endif %}
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/Inicio-Sesion/">Login</a>
+                <a href="/registro/">Registro</a>
+                <a href="/#planes">Plan</a>
+                <a href="/Contacto">Contacto</a>
+                <a href="/Salir-Sesion">Log out</a>
+                
+            </nav>
+         </div>
+     </header>
+     <div class = "cuadro">
+        <form action="/Inicio-Sesion/" method="POST">
+            {% if username_ok %}
+                <input type="text" name="username" id = "username_ok" required placeholder="Introduzca su nombre de usuario">
+            {% endif %}
+            {% if not username_ok %}
+                <input type="text" name="username" id = "usernamemalo" required placeholder="Esta cuenta no existe">
+            {% endif %}
+            {% if password_ok %}
+                <input type="password" name ="psw" required id = "psw" placeholder = "Introduzca su contrasenia">
+            {% endif %}
+            {% if not password_ok %}
+                <input type="password" name ="psw" required id = "pswmalo" placeholder = "Contraseña incorrecta">
+            {%endif%}
+            <input type="submit" value="Inicia!!!!!" id = "submit">
+        </form>
+        <p id = "OlvidaContrasenia">
+            No se acuerda de su contrasenia?. Haz <a href = "/OlvidarContrasenia">click aqui</a>
+        </p>
+    </div>
+    
+</body>
+</html>

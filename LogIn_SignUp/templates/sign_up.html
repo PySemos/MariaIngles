@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static%}
+    <link rel="stylesheet" href="{%static 'css/sign.css'%}">
+    <title>Registro</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            {% if initial_username%}
+                <div class="cuenta"><a href="/info/myaccount">{{initial_username}}</a></div>
+            {% endif %}
+
+            {% if not initial_username%}
+                <div class="cuenta"><a href="">?</a></div>
+            {% endif %}
+
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/Inicio-Sesion/">Login</a>
+                <a href="/registro/">Registro</a>
+                <a href="/#planes">Plan</a>
+                <a href="/Contacto">Contacto</a>
+                <a href="/Salir-Sesion">Log out</a>
+            </nav>
+        </div>
+    </header>
+    <div class = "cuadro">
+        <form action="/registro/" method="POST">
+            {% if username_ok %}
+            <input type="text" name="username" placeholder="Introduzca su nombre de usuario" required id="txtuser">
+            {% endif %}
+            {% if username_ok is not True%}
+                <input type="text" name="username" placeholder="Ya hay un usuario con este nombre" required id="txtusermal">
+            {% endif %}
+
+            <input type="text" name="lastname" placeholder="Apellidos" id="lastname">
+
+            <input type="password" name="password" placeholder="Introduzca su Contrasenia" required id = "psw">
+
+            {% if email_ok %}
+            
+                <input type="email" name="email" placeholder = "Introduzca su email" required id = "email">
+            {% endif %}
+
+            {% if email_ok is not True%}
+                <input type="email" name="email" placeholder = "Este email ya ha sido usado" required id = "emailmal">
+            {% endif %}
+        
+            <input type="number" name="age" placeholder="Introduzca su edad" required id = "age">
+            <input type="text" name="ID" id="id" required placeholder="Introduzca su Cédula">
+            <input type="submit" value="Enviar" id = "submit">
+        </form>
+    </div>
+</body>
+</html>

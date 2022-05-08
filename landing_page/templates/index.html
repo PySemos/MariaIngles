@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>AprenderIngles</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            {% if initial_username%}
+                <div class="cuenta"><a href="/info/myaccount">{{initial_username}}</a></div>
+            {% endif %}
+
+            {% if not initial_username%}
+                <div class="cuenta"><a href="">?</a></div>
+            {% endif %}
+            
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/Inicio-Sesion/">Login</a>
+                <a href="/registro/">Registro</a>
+                <a href="/#planes">Plan</a>
+                <a href="/Contacto">Contacto</a>
+                <a href="/Salir-Sesion">Log out</a>
+            </nav>
+        </div>
+    </header>
+    <section id="hero">
+        <h1>Bienvenido a aprender inglés</h1>
+    </section>
+
+    <section id="planes">
+        <div class="container">
+            <h2>Planes</h2>
+
+            <div class="plan">
+                <a href="#" id="basico">Basico</a>
+                
+            </div>
+
+            <div class="plan">
+                <a href="#" id="avanzado">Avanzado</a>
+               
+                
+            </div>
+
+            <div class="plan">
+                <a href="#" id="full"> Full</a>
+               
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

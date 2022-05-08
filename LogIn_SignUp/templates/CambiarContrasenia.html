@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/cambiar.css' %}">
+    <title>Cambie su contrasenia</title>
+</head>
+<body>
+    <header>        
+        <div class="container">
+            {% if initial_username%}
+                <div class="cuenta"><a href="/info/myaccount">{{initial_username}}</a></div>
+            {%endif%}
+            {% if not initial_username%}
+            <div class="cuenta"><a href="">?</a></div>
+            {%endif%}
+               
+            <nav>
+                <a href="#">Menu</a>
+                <a href="log_in.html">Login</a>
+                <a href="sign_up.html">Registro</a>
+                <a href="#">Plan</a>
+                <a href="#">Contacto</a>
+            </nav>
+        </div>
+    </header>
+    <div class="cuadro">
+        <div class="content">
+            <form action="/cambio_contrasenia/" method = "POST">
+                {%if not wrong_password_again %}
+                    <input type="password" name="change_password" placeholder="Nueva contraseña"id="cambiocontrasenia" required><br>
+                {% endif %}
+                {%if wrong_password_again %}
+                    <input type="password" name="change_password" placeholder="Contrasenia no coincide"id="cambiocontraseniamala" required><br>
+                {% endif %}
+                <input type="password" name="change_password_again" placeholder="Confirmar contraseña" id="confirmar" required><br>
+                <input type="submit" value="Cambiar" id="submit"><br>
+            </form>  
+        </div>
+    </div>
+</body>
+</html>

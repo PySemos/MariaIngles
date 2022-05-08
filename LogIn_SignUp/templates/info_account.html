@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'css/info.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{username}}</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="cuenta"><a href="info/myaccount">{{initial_username}}</a></div>
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/Inicio-Sesion/">Login</a>
+                <a href="/registro/">Registro</a>
+                <a href="/#planes">Plan</a>
+                <a href="/Contacto">Contacto</a>
+                <a href="/Salir-Sesion">Log out</a>
+            </nav>
+         </div>
+    </header>
+    <div class="logo">
+        <a href="#">{{initial_username}}</a>
+    </div>
+    <br>
+    <div class="cuadro">
+        <div class="centrar">            
+            <ul>
+                <li id = "username">
+                    Nombre de usuario: {{username}}
+                </li>
+
+                <li id = "email">
+                    Email: {{email}}
+                </li>
+
+                {% if apellido %}
+                    <li id = "apellido">
+                        Apellido: {{apellido}}
+                    </li>
+                {% endif %}
+
+                {% if id %}
+                    <li id = "id">
+                        Cédula: {{id}}
+                    </li>
+                {% endif %}
+
+                {% if age %}
+                    <li id = "age">
+                        Edad: {{age}}
+                    </li>
+                {% endif %}
+
+            </ul>
+            </div>
+            </div>
+</body>
+</html>
